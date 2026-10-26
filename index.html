@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copinha</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- TELA INICIAL -->
+    <main id="telaInicial" class="pagina-inicial">
+        <section class="inicio">
+            <div class="logo">
+                <span>🏆</span>
+                <h1>Copinha Site</h1>
+            </div>
+
+            <p class="subtitulo">
+                Organize seu campeonato, acompanhe as partidas
+                e descubra quem será o campeão!
+            </p>
+
+            <div class="botoes">
+                <button id="btnNovoCampeonato" class="btn btn-principal">
+                    Criar Campeonato 
+                </button>
+                <button id="btnContinuar" class="btn btn-secundario">
+                    Continuar Campeonato
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- TELA DE CONFIGURAÇÃO -->
+    <main id="telaConfiguracao" class="pagina-inicial tela-escondida">
+        <section class="painel-configuracao">
+
+            <div class="cabecalho-tela">
+                <span class="icone-titulo">⚽</span>
+                <div>
+                    <h2>Novo Campeonato</h2>
+                    <p>Configure seu campeonato</p>
+                </div>
+            </div>
+
+            <div class="campo">
+                <label for="nomeCampeonato">Nome do Campeonato</label>
+                <input type="text" id="nomeCampeonato" placeholder="Ex.: Copa dos Amigos 2026">
+            </div>
+
+            <div class="campo">
+                <label for="dataCampeonato">Data do Campeonato</label>
+                <input type="date" id="dataCampeonato">
+            </div>
+
+            <div class="campo">
+                <label for="quantidadeTimes">Quantidade de Times</label>
+                <select id="quantidadeTimes">
+                    <option value="2">2 Times</option>
+                    <option value="4">4 Times</option>
+                    <option value="8">8 Times</option>
+                    <option value="16">16 Times</option>
+                    <option value="32">32 Times</option>
+                </select>
+            </div>
+
+            <div class="campo">
+                <label for="quantidadeJogadores">Jogadores por Time</label>
+                <select id="quantidadeJogadores">
+                    <option value="3">3 jogadores</option>
+                    <option value="5">5 jogadores</option>
+                    <option value="7">7 jogadores</option>
+                    <option value="11">11 jogadores</option>
+                </select>
+            </div>
+
+            <div class="botoes-configuracao">
+                <button id="btnVoltar" class="btn btn-secundario">← Voltar</button>
+                <button id="btnCriarCampeonato" class="btn btn-principal">Criar Campeonato ⚽</button>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- TELA DE CADASTRO DO TIME -->
+    <main id="telaTime" class="pagina-inicial tela-escondida">
+        <section class="painel-time">
+
+            <div class="cabecalho-tela">
+                <span class="icone-titulo">🛡️</span>
+                <div>
+                    <h2 id="tituloCadastroTime">Cadastro do Time</h2>
+                    <p id="contadorTime">Time 1</p>
+                </div>
+            </div>
+
+            <div class="titulo-secao">
+                <span>🏟️</span>
+                <h3>Informações do Time</h3>
+            </div>
+
+            <div class="campo">
+                <label for="nomeTime">Nome do Time</label>
+                <input type="text" id="nomeTime" placeholder="Ex.: Estrela FC">
+            </div>
+
+            <div class="linha-campos">
+                <div class="campo">
+                    <label for="corTime">Cor do Time</label>
+                    <input type="color" id="corTime" value="#16a34a" class="input-cor">
+                </div>
+
+                <div class="campo">
+                    <label for="escudoTime">Escudo</label>
+                    <input type="file" id="escudoTime" accept="image/*">
+                </div>
+            </div>
+
+            <div class="preview-escudo">
+                <div id="escudoPreview" class="escudo-placeholder">🛡️</div>
+                <p>Pré-visualização do escudo</p>
+            </div>
+
+            <div class="titulo-secao">
+                <span>👥</span>
+                <h3>Jogadores</h3>
+            </div>
+
+            <div class="form-jogador">
+                <div class="campo">
+                    <label for="nomeJogador">Nome</label>
+                    <input type="text" id="nomeJogador" placeholder="Nome do jogador">
+                </div>
+
+                <div class="campo">
+                    <label for="numeroJogador">Número</label>
+                    <input type="number" id="numeroJogador" min="1" max="99" placeholder="10">
+                </div>
+
+                <div class="campo">
+                    <label for="posicaoJogador">Posição</label>
+                    <select id="posicaoJogador">
+                        <option value="Goleiro">Goleiro</option>
+                        <option value="Zagueiro">Zagueiro</option>
+                        <option value="Lateral">Lateral</option>
+                        <option value="Meio-campo">Meio-campo</option>
+                        <option value="Atacante">Atacante</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="linha-jogador">
+                <label class="checkbox-capitao">
+                    <input type="checkbox" id="jogadorCapitao">
+                    <span>👑 Este jogador é o capitão</span>
+                </label>
+
+                <button id="btnAdicionarJogador" class="btn btn-adicionar">
+                    + Adicionar Jogador
+                </button>
+            </div>
+
+            <div id="listaJogadores" class="lista-jogadores">
+                <div class="lista-vazia">
+                    👥
+                    <p>Nenhum jogador cadastrado.</p>
+                </div>
+            </div>
+
+            <div class="botoes-configuracao">
+                <button id="btnVoltarTime" class="btn btn-secundario">← Voltar</button>
+                <button id="btnSalvarTime" class="btn btn-principal">Salvar Time ⚽</button>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- TELA DE CONFERÊNCIA DOS TIMES -->
+    <main id="telaTimes" class="pagina-inicial tela-escondida">
+        <section class="painel-times">
+
+            <div class="cabecalho-tela">
+                <span class="icone-titulo">🏆</span>
+                <div>
+                    <h2>Times Cadastrados</h2>
+                    <p id="resumoCampeonato">Confira os times antes de começar</p>
+                </div>
+            </div>
+
+            <div id="listaTimes" class="lista-times"></div>
+
+            <div class="botoes-configuracao">
+                <button id="btnVoltarTimes" class="btn btn-secundario">← Voltar</button>
+                <button id="btnIniciarCampeonato" class="btn btn-principal">Iniciar Campeonato ⚽</button>
+            </div>
+
+        </section>
+    </main>
+
+
+    <!-- TELA DAS CHAVES -->
+    <main id="telaChaves" class="pagina-inicial tela-escondida">
+        <div class="painel-chaves">
+
+            <div class="cabecalho-tela">
+                <div class="icone-titulo">🏆</div>
+                <div>
+                    <h2>Chaves do Campeonato</h2>
+                    <p id="nomeCampeonatoChaves">Copa Challenge</p>
+                </div>
+            </div>
+
+            <div class="info-chaves">
+                <div class="info-item">
+                    <span>⚽</span>
+                    <div>
+                        <small>Times</small>
+                        <strong id="quantidadeTimesChaves">0</strong>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span>🏆</span>
+                    <div>
+                        <small>Formato</small>
+                        <strong id="formatoCampeonato">Eliminatórias</strong>
+                    </div>
+                </div>
+            </div>
+
+            <div id="bracket" class="bracket"></div>
+
+            <div class="acoes-chaves">
+                <button id="btnVoltarChaves" class="btn btn-secundario">← Voltar</button>
+            </div>
+
+        </div>
+    </main>
+
+
+    <!-- MODAL DE PARTIDA -->
+    <div id="modalPartida" class="modal-partida tela-escondida">
+        <div class="modal-conteudo">
+
+            <div class="modal-cabecalho">
+                <h2>⚽ Partida</h2>
+                <div class="cronometro" id="cronometro">00:00</div>
+            </div>
+
+            <div class="modal-placar">
+                <div class="lado-placar">
+                    <div class="escudo-modal" id="escudoModal1">⚽</div>
+                    <strong id="nomeModal1">Time 1</strong>
+                    <div class="gols-modal" id="golsModal1">0</div>
+                </div>
+
+                <div class="x-placar">X</div>
+
+                <div class="lado-placar">
+                    <div class="escudo-modal" id="escudoModal2">⚽</div>
+                    <strong id="nomeModal2">Time 2</strong>
+                    <div class="gols-modal" id="golsModal2">0</div>
+                </div>
+            </div>
+
+            <div class="botoes-gol">
+                <button class="btn-gol" onclick="registrarGol(1)">⚽ Gol Time 1</button>
+                <button class="btn-gol" onclick="registrarGol(2)">⚽ Gol Time 2</button>
+            </div>
+
+            <div class="historico-gols" id="historicoGols"></div>
+
+            <div class="modal-acoes">
+                <button class="btn btn-secundario" onclick="fecharModalPartida()">Fechar</button>
+                <button id="btnEncerrarPartida" class="btn btn-principal" onclick="encerrarPartida()">🏁 Encerrar
+                    Partida</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- MODAL DE GOL -->
+    <div id="modalGol" class="modal-partida tela-escondida">
+        <div class="modal-conteudo modal-gol">
+
+            <div class="modal-cabecalho">
+                <h2>⚽ Quem marcou o gol?</h2>
+            </div>
+
+            <p class="modal-gol-subtitulo" id="modalGolTime">Time</p>
+
+            <div class="modal-gol-jogadores" id="modalGolJogadores"></div>
+
+            <div class="campo">
+                <label for="inputGolJogador">Nome do jogador</label>
+                <input type="text" id="inputGolJogador" placeholder="Digite o nome do jogador">
+            </div>
+
+            <div class="modal-acoes">
+                <button class="btn btn-secundario" onclick="fecharModalGol()">Cancelar</button>
+                <button class="btn btn-principal" onclick="confirmarGol()">⚽ Confirmar Gol</button>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
